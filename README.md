@@ -35,6 +35,6 @@ The script will read the input CSV file, perform validation, and generate a new 
 
 ## Tests
 The script includes pytest tests to ensure the correct functionality. You can run the tests using:
-
-pytest metadata_validator.py
+   ```bash
+   pytest metadata_validator.py
 
