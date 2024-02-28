@@ -54,7 +54,7 @@ def write_clean_csv(output_file, clean_data):
 input_csv_file = 'metadata.csv'
 output_csv_file = 'validated_output.csv'
 
-input_csv_data = read_csv_file("C:\\Users\\deepa\\Desktop\\DAMG 7245\\Assignment 3\\metadata.csv")
+input_csv_data = read_csv_file("metadata.csv")
 
 run_tests_with_csv(input_csv_data)
 
@@ -71,13 +71,12 @@ for row in reader:
         print(f"Error processing row: {e}")
 
 # Write clean data to the output CSV file
-output_csv_path = "C:\\Users\\deepa\\Desktop\\DAMG 7245\\Assignment 3\\" + output_csv_file
+output_csv_path = "validated_output.csv" # defining absolute path + output_csv_file
 try:
     write_clean_csv(output_csv_path, cleaned_data)
     print(f"Cleaned data successfully written to {output_csv_path}")
 except Exception as write_error:
     print(f"Error writing cleaned data to {output_csv_path}: {write_error}")
-
 
 
 # Test cases for successful validation
