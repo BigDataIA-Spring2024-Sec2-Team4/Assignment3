@@ -16,12 +16,12 @@ This Python script validates metadata from a CSV file using Pydantic models and 
    git clone https://github.com/your-username/your-repo.git
 
 2. Navigate to the project directory:
-
-cd metadata-validator
+    ```bash
+    cd metadata-validator
 
 3. Run the script:
-
-python metadata_validator.py
+    ```bash
+    python metadata_validator.py
 
 The script will read the input CSV file, perform validation, and generate a new CSV file (validated_output.csv) with cleaned data.
 
