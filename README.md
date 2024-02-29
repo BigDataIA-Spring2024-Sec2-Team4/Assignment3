@@ -33,12 +33,13 @@ The script will read the input CSV file, perform validation, and generate a new 
 ## Configuration
 * Update input_csv_file and output_csv_file variables in the script to change file paths.
 
+
 ## Tests
 The script includes pytest tests to ensure the correct functionality. You can run the tests using:
    ```bash
    pytest metadata_validator.py
+   ```
 
-#######################
 # Upload to Amazon S3
 
 This script allows you to upload a CSV file from your local machine to an Amazon S3 bucket.
@@ -95,3 +96,5 @@ If you'd like to contribute, please fork the repository and create a pull reques
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+
