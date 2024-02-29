@@ -88,13 +88,3 @@ Before using this script, make sure you have the following:
     ```
 
 3. The script will upload the CSV file to the root of your S3 bucket (`validateddata`).
-
-## Contributing
-
-If you'd like to contribute, please fork the repository and create a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-
