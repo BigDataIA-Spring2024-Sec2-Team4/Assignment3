@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: transformed_article
+    tests:
+      - not_null:
+          column_name: [Level, Topic, Year, Number_of_articles]
