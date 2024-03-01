@@ -199,7 +199,7 @@ This project demonstrates a robust approach to processing, validating, and stori
 
 | Name       | Contribution % | Contributions                             |
 |------------|----------------|-------------------------------------------|
-| Riya Singh  | 30%            | ContentPDFClass, Schema design, Pydantic validation, Testing with Pytest |
+| Riya Singh  | 30%            | ContentPDFClass, Schema design, Pydantic validation, Testing with Pytest, Architecture Diagram, README |
 | Nidhi Nitin Kulkarani   | 40%            | URLClass, DBT transformation, Schema design, Pydantic validation, Testing with Pytest |
-| Deepakraja Rajendran   | 30%            | MetaDataPDFClass, Snowflake Integration, Pydantic validation, Testing with Pytest |
+| Deepakraja Rajendran   | 30%            | MetaDataPDFClass, Snowflake Integration, Pydantic validation, Testing with Pytest, README |
 
