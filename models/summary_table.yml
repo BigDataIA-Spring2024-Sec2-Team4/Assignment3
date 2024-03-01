@@ -1,7 +1,25 @@
 version: 2
 
-models:
-  - name: transformed_article
-    tests:
-      - not_null:
-          column_name: [Level, Topic, Year, Number_of_articles]
+models:  
+  - name: summary_table
+    description: "A summary table aggregating data about CFA articles."
+    columns:
+      - name: level
+        description: "Level of the Article"
+        tests:
+          - not_null
+         
+      - name: topic
+        description: "Topics of the data"
+        tests:
+          - not_null
+
+      - name: year
+        description: "Curriculum year for the articles"
+        tests:
+          - not_null
+
+      - name: number_of_articles
+        description: "Total number of articles"
+        tests:
+          - not_null
