@@ -4,8 +4,56 @@
 
 [![codelabs](https://img.shields.io/badge/codelabs-4285F4?style=for-the-badge&logo=codelabs&logoColor=white)](https://codelabs-preview.appspot.com/?file_id=1Zo7Izg-QxwYVgBzZWhqhnRQnYeTOEthq2rflQl-ytnQ#0)
 
+# URLModel Validation
 
+## Overview
 
+URLModel Validation is a Python script that utilizes Pydantic to validate and clean data related to URLs, specifically for a predefined schema. It performs validations on fields such as year, level, and URL domains. The validated data is then saved to a CSV file.
+
+## Prerequisites
+
+Ensure you have Python installed on your machine. You can download it from python.org.
+
+## Setup
+1. Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/your-username/URLModel-Validation.git
+
+2. Navigate to the project directory:
+   ```bash
+   cd URLModel-Validation
+3. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+
+## Usage
+1. Place your JSON data file (CFA.json) in the project directory.
+2. Run the script:
+   ```bash
+   python url_model_validation.py
+3. View the validated data in the generated CSV file ('validated_CFA.csv').
+
+## Pydantic Model - URLModel
+The 'URLModel' Pydantic model is defined with the following fields:
+* Name_of_the_topic
+* Year
+* Level
+* Introduction_Summary
+* Learning_Outcomes
+* Link_to_the_Summary_Page
+* Link_to_the_PDF_File
+
+## Field Validation
+* Year: Validates integer or string containing digits within a specific range (2010 to current year).
+* Level: Converts Roman numerals to integers and validates the level field.
+* URL Domain: Checks if the URL domain is from "www.cfainstitute.org".
+* PDF URL Domain and Extension: Checks if the PDF URL domain is from "www.cfainstitute.org" and has a ".pdf" extension.
+
+## Test Cases
+Positive and negative test cases are included to ensure proper validation.
+
+## Conclusion
+URLModel Validation provides a reliable solution for validating and cleaning data related to URLs. It ensures data integrity and adherence to the specified schema.
 
 # Metadata Validator
 
