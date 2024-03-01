@@ -6,13 +6,50 @@
 
 # URLModel Validation
 
-## Overview
+## Problem Statement
 
-URLModel Validation is a Python script that utilizes Pydantic to validate and clean data related to URLs, specifically for a predefined schema. It performs validations on fields such as year, level, and URL domains. The validated data is then saved to a CSV file.
+This project aims to design, validate, and process data schemas for  CFA Institute’s website and PDF files using Grobid/PyPDF2 for extraction. The challenge involves ensuring data integrity through schema validation using Pydantic, DBT transformation, and efficient Snowflake storage
+
+## Project Goals
+
+1. Design `URLClass` to validate CFA webpages.
+2. Create `MetaDataPDFClass` and `ContentPDFClass` for Grobid output.
+3. Implement data and schema validation using Pydantic.
+4. Develop a Snowflake schema for storing validated data.
+5. Process "clean" CSV files from validated data.
+6. Utilize DBT with Snowflake for data transformation.
+7. Ensure robust testing with Pytest, demonstrating both success and failure cases
+
+ ## Technologies Used
+
+- Python
+- Pydantic
+- Pytest
+- Grobid
+- Snowflake
+- DBT
+- GitHub for version control
+
+## Data Sources
+
+- CFA webpages (224 pages)
+- Three PDF files processed through Grobid
+
 
 ## Prerequisites
 
-Ensure you have Python installed on your machine. You can download it from python.org.
+1. Python 3.8+
+2. Pip for Python package management
+3. Snowflake account and setup
+4. DBT setup and account
+
+## How to Run Application Locally
+
+1. Clone the repository to your local machine.
+2. Install required Python packages using 
+3. Set up your Snowflake and DBT accounts, configuring the necessary credentials.
+4. Follow DBT documentation to set up and run transformation jobs against your Snowflake data warehouse.
+
 
 ## Setup
 1. Clone the repository to your local machine:
@@ -29,8 +66,9 @@ Ensure you have Python installed on your machine. You can download it from pytho
 ## Usage
 1. Place your JSON data file (CFA.json) in the project directory.
 2. Run the script:
-   ```bash
+   '''
    python url_model_validation.py
+   '''
 3. View the validated data in the generated CSV file ('validated_CFA.csv').
 
 ## Pydantic Model - URLModel
@@ -52,32 +90,29 @@ The 'URLModel' Pydantic model is defined with the following fields:
 ## Test Cases
 Positive and negative test cases are included to ensure proper validation.
 
-## Conclusion
-URLModel Validation provides a reliable solution for validating and cleaning data related to URLs. It ensures data integrity and adherence to the specified schema.
 
 # Metadata Validator
 
 This Python script validates metadata from a CSV file using Pydantic models and generates a new CSV file with cleaned data.
 
-## Prerequisites
-
-- Python 3.x
-- Install required packages using `pip install -r requirements.txt`
 
 ## Usage
 
 1. Clone the repository:
 
-   ```bash
+   '''
    git clone https://github.com/your-username/your-repo.git
+   '''
 
 2. Navigate to the project directory:
-    ```bash
+    '''
     cd metadata-validator
+    '''
 
 3. Run the script:
-    ```bash
+    '''
     python metadata_validator.py
+    '''
 
 The script will read the input CSV file, perform validation, and generate a new CSV file (validated_output.csv) with cleaned data.
 
@@ -111,24 +146,24 @@ Before using this script, make sure you have the following:
 
 1. Clone the repository:
 
-    ```bash
+    ''''
     git clone https://github.com/your-username/your-repository.git
-    ```
+    ''''
 
 2. Install required Python packages:
 
-    ```bash
+    '''
     pip install -r requirements.txt
-    ```
+    '''
 
 3. Set up your environment variables:
 
     Create a `.env` file with the following content:
 
-    ```env
+    '''
     access_id=your-aws-access-key-id
     secret_key=your-aws-secret-access-key
-    ```
+    ''''
 
     Replace `your-aws-access-key-id` and `your-aws-secret-access-key` with your AWS credentials.
 
@@ -138,8 +173,34 @@ Before using this script, make sure you have the following:
 
 2. Run the script:
 
-    ```bash
+    '''
     python upload_to_s3.py
-    ```
+    '''
 
 3. The script will upload the CSV file to the root of your S3 bucket (`validateddata`).
+
+## References
+
+- [Pydantic Documentation](https://pydantic-docs.helpmanual.io/)
+- [DBT Documentation](https://docs.getdbt.com/)
+- [Snowflake Documentation](https://docs.snowflake.com/)
+
+## Learning Outcomes
+
+- Proficiency in data extraction and processing using Grobid.
+- Schema design and validation using Pydantic.
+- Data transformation and analytics with Snowflake and DBT.
+- Comprehensive testing with Pytest to ensure data integrity.
+
+## Conclusion
+
+This project demonstrates a robust approach to processing, validating, and storing PDF content, leveraging modern tools like Pydantic for data validation, Snowflake for data storage, and Pytest for testing. It also introduces you to advanced data transformation and deployment strategies by introducing test and prod env concepts. Through meticulous schema design and testing, the project lays the foundation for various applications to leverage processed PDF data efficiently and reliably.
+
+## Team Information and Contribution
+
+| Name       | Contribution % | Contributions                             |
+|------------|----------------|-------------------------------------------|
+| Riya Singh  | 33.33%            | ContentPDFClass, Schema design, Pydantic validation, Testing with Pytest |
+| Nidhi Nitin Kulkarani   | 33.33%            | URLClass, DBT transformation, Schema design, Pydantic validation, Testing with Pytest |
+| Deepakraja Rajendran   | 33.33%            | MetaDataPDFClass, Snowflake Integration, Pydantic validation, Testing with Pytest |
+
