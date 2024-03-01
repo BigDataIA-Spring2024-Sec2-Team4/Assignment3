@@ -125,20 +125,9 @@ The script will read the input CSV file, perform validation, and generate a new 
 
 ## Tests
 The script includes pytest tests to ensure the correct functionality. You can run the tests using:
-   '''
+   ```bash
    pytest metadata_validator.py
-   '''
-
-## Pydantic Model - ContentPDFClass
-
-The Pydantic model ContentPDFClass is defined with the following fields to represent and validate the structured content:
-file_name: String representing the name of the PDF file.
-topics: List of strings, each representing a main main headings in the document.
-subheadings: List of subheadings under that heading.
-subheading_counts: Count of occurrences of subheading within the document.
-
-## Usage
-This structured approach allows for detailed analysis and categorization of the PDF content, facilitating various applications such as content summarization, indexing for search, and educational material categorization. The Pydantic model automatically validates the data upon creation. Valid instances can be used for data processing, analysis, or export to structured formats like CSV.
+   ```
 
 # Upload to Amazon S3
 
