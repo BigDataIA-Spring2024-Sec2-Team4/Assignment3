@@ -33,14 +33,6 @@ The script will read the input CSV file, perform validation, and generate a new 
 ## Configuration
 * Update input_csv_file and output_csv_file variables in the script to change file paths.
 
-
-## Tests
-The script includes pytest tests to ensure the correct functionality. You can run the tests using:
-
-pytest metadata_validator.py
-
-=======
-
 ## Tests
 The script includes pytest tests to ensure the correct functionality. You can run the tests using:
    ```bash
