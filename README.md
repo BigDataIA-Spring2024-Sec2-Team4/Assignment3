@@ -21,29 +21,102 @@ This project aims to design, validate, and process data schemas for  CFA Institu
 
  ## Technologies Used
 
-- Python
-- Pydantic
-- Pytest
-- Grobid
-- Snowflake
-- DBT
-- GitHub for version control
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)
+[![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)](https://www.python.org/)
+[![GROBID](https://img.shields.io/badge/GROBID-FFFFFF?style=for-the-badge&logo=GROBID&logoColor=black)](https://grobid.readthedocs.io/en/latest/Introduction/)
+[![Snowflake](https://img.shields.io/badge/snowflake-0000FF?style=for-the-badge&logo=snowflake&logoColor=white)](https://docs.snowflake.com/ )
+[![DBT](https://img.shields.io/badge/DBT-861121?style=for-the-badge)](https://www.getdbt.com/)
+
+
 
 ## Data Sources
-
-- CFA webpages (224 pages)
+- [CFA Website](https://www.cfainstitute.org/en/membership/professional-development/refresher-readings#sort=%40refreadingcurriculumyear%20descending)
 - Three PDF files processed through Grobid
 
 
 ## Prerequisites
-
 1. Python 3.8+
 2. Pip for Python package management
 3. Snowflake account and setup
 4. DBT setup and account
 
-## How to Run Application Locally
+Install PyDantic using pip:
+```⁠ bash
+pip install pydantic
+```
 
+Install PyTest using pip:
+```
+pip install pytest
+```
+
+## Project Structure
+```⁠ bash
+.DS_Store
+.gitignore
+DBT-Snowflake.txt
+Datasets
+   |-- CFA.csv
+   |-- Grobid
+   |   |-- Grobid_RR_2024_l1_combined.txt
+   |   |-- Grobid_RR_2024_l1_combined.xml
+   |   |-- Grobid_RR_2024_l2_combined.txt
+   |   |-- Grobid_RR_2024_l2_combined.xml
+   |   |-- Grobid_RR_2024_l3_combined.txt
+   |   |-- Grobid_RR_2024_l3_combined.xml
+   |   |-- metadata.csv
+   |   |-- metadata_enhanced.csv
+   |-- PyPDF
+   |   |-- PyPDF_RR_2024_l1_combined.txt
+   |   |-- PyPDF_RR_2024_l2_combined.txt
+   |   |-- PyPDF_RR_2024_l3_combined.txt
+   |-- Sample_PDFs
+   |   |-- 2024-l1-topics-combined-2.pdf
+   |   |-- 2024-l2-topics-combined-2.pdf
+   |   |-- 2024-l3-topics-combined-2.pdf
+   |-- final_output.csv
+README.md
+analyses
+   |-- .gitkeep
+dbt_project.yml
+images
+   |-- .DS_Store
+   |-- Architecture Diagram.png
+   |-- Pydantic.png
+   |-- csv.png
+   |-- dbt.png
+   |-- pytest.png
+   |-- snowflake.png
+macros
+   |-- .gitkeep
+models
+   |-- split_subheadings.sql
+   |-- summary_table.sql
+   |-- summary_table.yml
+notebooks
+   |-- Architecture_Diagram.ipynb
+   |-- CFA.json
+   |-- ContentPDFClass File.ipynb
+   |-- S3 to snowflake.ipynb
+   |-- URLClass.ipynb
+   |-- Validated data to snoflake.ipynb
+   |-- architecture_diagram.png
+   |-- metadata.csv
+   |-- test_metadata_validation.py
+   |-- validated_CFA.csv
+seeds
+   |-- .gitkeep
+snapshots
+   |-- .gitkeep
+tests
+   |-- .gitkeep
+validated data
+   |-- validated_CFA.csv
+   |-- validated_metadata_output.csv
+validated_CFA.csv
+```
+
+## How to Run Application Locally
 1. Clone the repository to your local machine.
 2. Install required Python packages using 
 3. Set up your Snowflake and DBT accounts, configuring the necessary credentials.
@@ -90,7 +163,7 @@ The 'URLModel' Pydantic model is defined with the following fields:
 Positive and negative test cases are included to ensure proper validation.
 
 
-# Metadata Validator
+## Metadata Validator
 
 This Python script validates metadata from a CSV file using Pydantic models and generates a new CSV file with cleaned data.
 
@@ -128,6 +201,16 @@ The script includes pytest tests to ensure the correct functionality. You can ru
    ```bash
    pytest metadata_validator.py
    ```
+
+## ContentPDFClass: Validation and CSV Processing
+ContentPDFClass is designed to encapsulate and validate the structured content extracted from PDF files, focusing on the headings, subheadings, and the count of occurrences for each subheading.
+
+## Pydantic Model - ContentPDFClass
+The Pydantic model ContentPDFClass is defined with the following fields to represent and validate the structured content:
+- file_name: String representing the name of the PDF file.
+- topics: List of strings, each representing a main main headings in the document.
+- subheadings: List of subheadings under that heading.
+- subheading_counts: Count of occurrences of subheading within the document.
 
 # Upload to Amazon S3
 
@@ -178,6 +261,18 @@ Before using this script, make sure you have the following:
 
 3. The script will upload the CSV file to the root of your S3 bucket (`validateddata`).
 
+## DBT
+Transform and summarize the cleaned CSV data using DBT in conjunction with Snowflake.
+* Connection of snowflake with dbt
+* Creation of models for asked schema
+* Generated test
+* Deployed to test and prod
+## STEPS:
+- Data Loading: Import the cleaned CSV data into Snowflake.
+- DBT Project: Create a DBT project to define transformation workflows.
+
+
+
 ## References
 
 - [Pydantic Documentation](https://pydantic-docs.helpmanual.io/)
@@ -199,7 +294,7 @@ This project demonstrates a robust approach to processing, validating, and stori
 
 | Name       | Contribution % | Contributions                             |
 |------------|----------------|-------------------------------------------|
-| Riya Singh  | 30%            | ContentPDFClass, Schema design, Pydantic validation, Testing with Pytest, Architecture Diagram, README |
-| Nidhi Nitin Kulkarani   | 40%            | URLClass, DBT transformation, Schema design, Pydantic validation, Testing with Pytest |
+| Riya Singh  | 33%            | ContentPDFClass, Schema design, Pydantic validation, Testing with Pytest, Architecture Diagram, README |
+| Nidhi Nitin Kulkarani   | 37%            | URLClass, DBT transformation, Schema design, Pydantic validation, Testing with Pytest |
 | Deepakraja Rajendran   | 30%            | MetaDataPDFClass, Snowflake Integration, Pydantic validation, Testing with Pytest, README |
 
